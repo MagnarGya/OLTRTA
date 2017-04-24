@@ -7,7 +7,7 @@ using OLTRTA.CommonLanguageObjects;
 
 namespace OLTRTA {
     class TestClass {
-        void test() {
+        public void test() {
             Expression[] exs = new Expression[6];
             exs[0] = new Expression("readSensors()");
 
