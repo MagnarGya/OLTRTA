@@ -7,5 +7,9 @@ using System.Threading.Tasks;
 namespace OLTRTA.CommonLanguageObjects {
     class Block : Expression{
         public Expression[] exs;
+
+        public Block(Expression[] _exs) {
+            exs = _exs;
+        }
     }
 }
