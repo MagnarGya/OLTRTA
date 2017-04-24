@@ -9,15 +9,23 @@ namespace OLTRTA {
     class CommonToCParser : CommonToLanguageParser {
         public string parseBlock(Block _bl) {
             string returnstring = "";
-
-            returnstring += "{";
             foreach (Expression ex in _bl.exs) {
                 returnstring += parseExpression(ex);
                 if (ex.GetType() == typeof(Expression)) {
-                    returnstring += ";";
+                    returnstring += ";\n";
                 }
             }
-            returnstring += "}";
+            
+            string[] lines = returnstring.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+            for (int i = 0; i < lines.Length-1; i++) {
+                lines[i] = "    " + lines[i] +"\n";
+            }
+            returnstring = "";
+            returnstring += "{\n";
+            foreach (string str in lines) {
+                returnstring += str;
+            }
+            returnstring += "} \n";
 
             return returnstring;
         }
@@ -25,7 +33,7 @@ namespace OLTRTA {
         public string parseElse(Else _else) {
             string returnstring = "";
 
-            returnstring += "else";
+            returnstring += "else ";
             returnstring += parseExpression(_else.ex);
 
             return returnstring;
@@ -64,8 +72,10 @@ namespace OLTRTA {
             string returnstring = "";
 
             returnstring += _method.type + " " + _method.name + "(";
-            foreach (Parameter param in _method.parameters) {
-                returnstring += parseParameter(param);
+            if (_method.parameters != null) {
+                foreach (Parameter param in _method.parameters) {
+                    returnstring += parseParameter(param);
+                }
             }
             returnstring += ")";
             returnstring += parseBlock(_method.bl);
@@ -76,13 +86,18 @@ namespace OLTRTA {
         public string parseParameter(Parameter _parameter) {
             string returnstring = "";
 
-
+            returnstring += _parameter.type + " " + _parameter.content;
 
             return returnstring;
         }
 
         public string parseWhile(While _while) {
-            throw new NotImplementedException();
+            string returnstring = "";
+
+            returnstring += "while (" + parseExpression(_while.ex) + ")";
+            returnstring += parseBlock(_while.bl);
+
+            return returnstring;
         }
     }
 }
