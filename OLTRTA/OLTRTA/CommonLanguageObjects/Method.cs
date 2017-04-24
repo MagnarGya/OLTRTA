@@ -24,5 +24,9 @@ namespace OLTRTA.CommonLanguageObjects {
             parameters = null;
             bl = _bl;
         }
+
+        public Method() {
+
+        }
     }
 }

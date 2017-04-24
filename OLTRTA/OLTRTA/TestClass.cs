@@ -32,9 +32,11 @@ namespace OLTRTA {
             exs[5] = new Else(block5);
 
             Method loop = new Method("void","loop",new Block(exs));
+            BotMethod botmet = new BotMethod("ArduinoShieldBot", "MoveForward");
 
-            CommonToLanguageParser pyparser = new CommonToPythonParser();
-            Console.Write(pyparser.parseMethod(loop));
+            CommonToLanguageParser cparser = new CommonToCParser();
+            Console.Write(cparser.parseMethod(loop));
+            Console.Write(cparser.parseMethod(botmet));
         }
     }
 }
