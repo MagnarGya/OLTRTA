@@ -33,8 +33,8 @@ namespace OLTRTA {
 
             Method loop = new Method("void","loop",new Block(exs));
 
-            CommonToLanguageParser cparser = new CommonToCParser();
-            Console.Write(cparser.parseMethod(loop));
+            CommonToLanguageParser pyparser = new CommonToPythonParser();
+            Console.Write(pyparser.parseMethod(loop));
         }
     }
 }
