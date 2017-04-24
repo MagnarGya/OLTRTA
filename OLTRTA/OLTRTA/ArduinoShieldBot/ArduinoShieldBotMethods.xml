@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-  <moveForward>
+<methods>
+  <MoveForward parameter="time">
     servoLeft.writeMicroseconds(1700);
     servoRight.writeMicroseconds(1300);
     delay(time);
     servoLeft.writeMicroseconds(1500);
     servoRight.writeMicroseconds(1500);
     delay(1);
-  </moveForward>
-  <moveBackward>
+  </MoveForward>
+  <MoveBackward parameter="time">
     servoLeft.writeMicroseconds(1300);
     servoRight.writeMicroseconds(1700);
     delay(time);
     servoLeft.writeMicroseconds(1500);
     servoRight.writeMicroseconds(1500);
     delay(1);
-  </moveBackward>
-  <turnLeft>
+  </MoveBackward>
+  <turnLeft parameter="time">
     servoLeft.writeMicroseconds(1300);
     servoRight.writeMicroseconds(1300);
     delay(time);
@@ -24,7 +24,7 @@
     servoRight.writeMicroseconds(1500);
     delay(1);
   </turnLeft>
-  <turnRight>
+  <turnRight parameter="time">
     servoLeft.writeMicroseconds(1700);
     servoRight.writeMicroseconds(1700);
     delay(time);
@@ -32,15 +32,15 @@
     servoRight.writeMicroseconds(1500);
     delay(1);
   </turnRight>
-  <InfraredDetect>
+  <InfraredSensor parameter="pin, pout">
     tone(pout, 38000, 8);
     delay(1);
     int ir = digitalRead(pin);
     return !(ir);
-  </InfraredDetect>
-  <WhiskerDetect>
+  </InfraredSensor>
+  <WhiskerSensor parameter="pin">
     delay(1);
     int w = digitalRead(pin);
     return !(w);
-  </WhiskerDetect>
-</configuration>
+  </WhiskerSensor>
+</methods>
