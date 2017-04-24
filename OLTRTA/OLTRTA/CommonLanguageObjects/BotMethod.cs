@@ -26,7 +26,7 @@ namespace OLTRTA.CommonLanguageObjects {
                 }
             }
 
-            type = "void";
+            type = t.Element(_name).LastAttribute.Value;
             Expression[] exs = { new Expression(text)};
             bl = new Block(exs);
         }
