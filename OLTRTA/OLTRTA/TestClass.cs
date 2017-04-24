@@ -7,7 +7,15 @@ using OLTRTA.CommonLanguageObjects;
 
 namespace OLTRTA {
     class TestClass {
+        void test() {
         Method method = new Method();
-        
+            method.type = "void";
+            method.parameters = null;
+
+            Block mainBlock = new Block();
+            mainBlock.exs = new Expression[6];
+            mainBlock.exs[0] = new Expression();
+            mainBlock.exs[0].content = "readSensors()";
+        }
     }
 }
