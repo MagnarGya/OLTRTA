@@ -63,6 +63,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CommonLanguageObjects\Block.cs" />
+    <Compile Include="CommonLanguageObjects\Else.cs" />
+    <Compile Include="CommonLanguageObjects\Expression.cs" />
+    <Compile Include="CommonLanguageObjects\For.cs" />
+    <Compile Include="CommonLanguageObjects\If.cs" />
+    <Compile Include="CommonLanguageObjects\Method.cs" />
+    <Compile Include="CommonLanguageObjects\Parameter.cs" />
+    <Compile Include="CommonLanguageObjects\While.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -95,9 +103,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CommonLanguageObjects\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
