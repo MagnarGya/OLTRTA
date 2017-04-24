@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <methods>
-  <MoveForward parameter="int time">
+  <MoveForward parameter="int time" return="void">
     servoLeft.writeMicroseconds(1700);
     servoRight.writeMicroseconds(1300);
     delay(time);
@@ -8,7 +8,7 @@
     servoRight.writeMicroseconds(1500);
     delay(1);
   </MoveForward>
-  <MoveBackward parameter="int time">
+  <MoveBackward parameter="int time" return="void">
     servoLeft.writeMicroseconds(1300);
     servoRight.writeMicroseconds(1700);
     delay(time);
@@ -16,7 +16,7 @@
     servoRight.writeMicroseconds(1500);
     delay(1);
   </MoveBackward>
-  <turnLeft parameter="int degrees">
+  <turnLeft parameter="int degrees" return="void">
     servoLeft.writeMicroseconds(1300);
     servoRight.writeMicroseconds(1300);
     delay(degrees*5);
@@ -24,7 +24,7 @@
     servoRight.writeMicroseconds(1500);
     delay(1);
   </turnLeft>
-  <turnRight parameter="int degrees">
+  <turnRight parameter="int degrees" return="void">
     servoLeft.writeMicroseconds(1700);
     servoRight.writeMicroseconds(1700);
     delay(degrees*5);
@@ -32,13 +32,13 @@
     servoRight.writeMicroseconds(1500);
     delay(1);
   </turnRight>
-  <InfraredSensor parameter="int pin,int pout">
+  <InfraredSensor parameter="int pin,int pout" return="int">
     tone(pout, 38000, 8);
     delay(1);
     int ir = digitalRead(pin);
     return !(ir);
   </InfraredSensor>
-  <WhiskerSensor parameter="pin">
+  <WhiskerSensor parameter="pin" return="int">
     delay(1);
     int w = digitalRead(pin);
     return !(w);
