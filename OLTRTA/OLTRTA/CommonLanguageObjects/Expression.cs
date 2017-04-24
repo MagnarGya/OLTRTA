@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace OLTRTA.CommonLanguageObjects {
     class Expression {
-        public string content;
+        public string content = null;
 
-        public Expression(String _content) {
+        public Expression(string _content) {
             content = _content;
         }
 
         public Expression() {
-
+            
         }
     }
 }
