@@ -7,7 +7,7 @@ using OLTRTA.CommonLanguageObjects;
 
 namespace OLTRTA {
     class TestClass {
-        public void test() {
+        public static void test() {
             Expression[] exs = new Expression[6];
             exs[0] = new Expression("readSensors()");
 
@@ -31,7 +31,10 @@ namespace OLTRTA {
             Block block5 = new Block(bl5Exs);
             exs[5] = new Else(block5);
 
-            Method loop = new Method("void",new Block(exs));
+            Method loop = new Method("void","loop",new Block(exs));
+
+            CommonToLanguageParser pyparser = new CommonToPythonParser();
+            Console.Write(pyparser.parseMethod(loop));
         }
     }
 }

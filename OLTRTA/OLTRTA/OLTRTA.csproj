@@ -58,6 +58,7 @@
     <Compile Include="CommonLanguageObjects\BotMethod.cs" />
     <Compile Include="CommonToCParser.cs" />
     <Compile Include="CommonToLanguageParser.cs" />
+    <Compile Include="CommonToPythonParser.cs" />
     <Compile Include="TestClass.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -20,8 +20,8 @@ namespace OLTRTA {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
-            TestClass tc = new TestClass();
-            tc.test();
+
+            TestClass.test();
         }
     }
 }
