@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace OLTRTA.CommonLanguageObjects {
     class Expression {
-        string content;
+        public string content;
     }
 }

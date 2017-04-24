@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OLTRTA.CommonLanguageObjects {
     class Parameter {
-        string type;
-        string content;
+        public string type;
+        public string content;
     }
 }

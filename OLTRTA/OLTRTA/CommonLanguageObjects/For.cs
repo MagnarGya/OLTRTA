@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace OLTRTA.CommonLanguageObjects {
     class For : Expression {
-        Expression init;
-        Expression check;
-        Expression action;
-        Block bl;
+        public Expression init;
+        public Expression check;
+        public Expression action;
+        public Block bl;
     }
 }

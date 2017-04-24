@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace OLTRTA.CommonLanguageObjects {
     class Block : Expression{
-        Expression[] exs;
+        public Expression[] exs;
     }
 }

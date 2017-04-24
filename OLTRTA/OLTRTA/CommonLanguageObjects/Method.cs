@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace OLTRTA.CommonLanguageObjects {
     class Method {
-        string type;
-        Parameter[] parameters;
-        Block bl;
+        public string type;
+        public Parameter[] parameters;
+        public Block bl;
     }
 }

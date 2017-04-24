@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OLTRTA.CommonLanguageObjects {
     class If : Expression{
-        Expression ex;
-        Block bl;
+        public Expression ex;
+        public Block bl;
     }
 }
