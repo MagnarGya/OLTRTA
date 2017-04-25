@@ -65,7 +65,7 @@ namespace OLTRTA {
         public string parseIf(If _if) {
             string returnstring = "";
 
-            returnstring += "if (" + parseExpression(_if.ex) + "):";
+            returnstring += "if " + parseExpression(_if.ex) + ":";
             returnstring += parseBlock(_if.bl);
 
             return returnstring;
