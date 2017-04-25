@@ -78,6 +78,9 @@ namespace OLTRTA {
             if (_method.parameters != null) {
                 foreach (Parameter param in _method.parameters) {
                     returnstring += parseParameter(param);
+                    if (param != _method.parameters.Last()) {
+                        returnstring += ",";
+                    }
                 }
             }
             returnstring += "):";
