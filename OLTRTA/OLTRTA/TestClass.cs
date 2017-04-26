@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using OLTRTA.CommonLanguageObjects;
 
 namespace OLTRTA {
@@ -32,17 +33,33 @@ namespace OLTRTA {
             exs[5] = new Else(block5);
 
             Method loop = new Method("void","loop",new Block(exs));
-            BotMethods botmet = new BotMethods("ArduinoShieldBot");
+            
 
             CommonToLanguageParser cparser = new CommonToCParser();
             Console.Write(cparser.parseMethod(loop));
             
-            for(int i = 0; i < botmet.methods.Length; i++) {
-                Console.Write(cparser.parseMethod(botmet.methods[i]));
-            }
+            
 
             CommonToLanguageParser pyparser = new CommonToPythonParser();
             Console.Write(pyparser.parseMethod(loop));
+
+            XDocument xml = XDocument.Load(@"..\..\" + "ArduinoShieldBot" + "\\" + "ArduinoShieldBot" + ".xml");
+            string script = xml.Element("robot").Element("setup").Value;
+            XDocument config = XDocument.Load(@"..\..\" + "ArduinoShieldBot" + "\\" + "ShieldBot1(Standard)" + ".xml");
+            var a = config.Element("assignments").Elements();
+            foreach (XElement assign in a) {
+                script = script.Replace(assign.Name.ToString(), assign.FirstAttribute.Value.ToString());
+            }
+            script += cparser.parseMethod(loop);
+            BotMethods botmet = new BotMethods("ArduinoShieldBot", "ShieldBot1(Standard)");
+            for (int i = 0; i < botmet.methods.Length; i++) {
+                script += cparser.parseMethod(botmet.methods[i]);
+            }
+            Console.Write(script);
+        }
+
+        void hardcodedTestToGenerateFullArduinoScript(Method loop) {
+            
         }
     }
 }

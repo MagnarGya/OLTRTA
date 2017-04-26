@@ -110,7 +110,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ArduinoShieldBot\ArduinoShieldBotMethods.xml" />
+    <Resource Include="ArduinoShieldBot\ArduinoShieldBot.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ArduinoShieldBot\ShieldBot1%28standard%29.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="LegoMindstormsEV3\LegoMindstormsEV3.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
