@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <robot>
-  <setup>#include &lt;Servo.h&gt;
-
-    Servo servoRight;
-    Servo servoLeft;
-    int touchingLeft;
-    int touchingRight;
-    int seeingLeft;
-    int seeingRight;
-    void setup(){
-    servoRight.attach(ServoRight);
-    servoLeft.attach(ServoLeft);
-    Serial.begin(9600);
-    }
+  <setup>
+    <globalvariables>
+      <e name="&lt;Servo.h&gt;" type="#include"/>
+      <e name="servoRight" type="Servo"/>
+      <e name="servoLeft" type="Servo"/>
+      <e name="touchingLeft" type="int"/>
+      <e name="touchingRight" type="int"/>
+      <e name="seeingLeft" type="int"/>
+      <e name="seeingRight" type="int"/>
+    </globalvariables>
+    <method>
+      <setup parameters="" return="void">servoRight.attach(ServoRight);
+servoLeft.attach(ServoLeft);
+Serial.begin(9600)</setup>
+    </method>
   </setup>
 <methods>
   <moveForward parameter="int time" return="void">servoLeft.writeMicroseconds(1700);
@@ -46,6 +48,9 @@ return !(ir)</InfraredSensor>
   <WhiskerSensor parameter="int pin" return="int">delay(1);
 int w = digitalRead(pin);
 return !(w)</WhiskerSensor>
+  <idle parameter="int time" return="void">servoLeft.writeMicroseconds(1500);
+servoRight.writeMicroseconds(1500);
+delay(time)</idle>
 </methods>
 <metamethods>
   <ReadSensors parameter="" return="void">touchingLeft = WhiskerSensor(LeftWhisker);
@@ -64,5 +69,6 @@ return !(w)</WhiskerSensor>
   <MoveBackward parameter="int time" return="void">moveBackward(time)</MoveBackward>
   <TurnRight parameter="int degrees" return="void">turnRight(degrees)</TurnRight>
   <TurnLeft parameter="int degrees" return="void">turnLeft(degrees)</TurnLeft>
+  <Idle parameter="int time" return="void">idle(time)</Idle>
 </metamethods>
 </robot>
