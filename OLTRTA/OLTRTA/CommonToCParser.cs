@@ -11,9 +11,6 @@ namespace OLTRTA {
             string returnstring = "";
             foreach (Expression ex in _bl.exs) {
                 returnstring += parseExpression(ex);
-                if (ex.GetType() == typeof(Expression)) {
-                    returnstring += ";\n";
-                }
             }
             
             string[] lines = returnstring.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
@@ -46,7 +43,7 @@ namespace OLTRTA {
                 case "OLTRTA.CommonLanguageObjects.Block": return parseBlock(_exp as Block);
                 case "OLTRTA.CommonLanguageObjects.While": return parseWhile(_exp as While);
                 case "OLTRTA.CommonLanguageObjects.For": return parseFor(_exp as For);
-                default: return _exp.content;
+                default: return _exp.content+";\n";
             }
         }
 

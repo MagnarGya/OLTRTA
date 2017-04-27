@@ -47,7 +47,7 @@ namespace OLTRTA {
             BotMethods botmet = new BotMethods("ArduinoShieldBot", "ShieldBot1(Standard)");
             string script ="";
             for(int i = 0; i < botmet.global_variables.Length; i++) {
-                script += cparser.parseExpression(botmet.global_variables[i]) + ";\n";
+                script += cparser.parseExpression(botmet.global_variables[i]);
             }
             script += cparser.parseMethod(botmet.setup);
             script += cparser.parseMethod(loop);
