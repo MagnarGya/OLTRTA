@@ -30,7 +30,7 @@ namespace OLTRTA {
             for (int i = 0; i < botmethods.metamethods.Length; i++) {
                 script += parser.parseMethod(botmethods.metamethods[i]);
             }
-            System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\Robocode\\" + botmethods.robot + "\\" + botmethods.robot + botmethods.extension, script);
+            System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\Robocode\\" + botmethods.name + "\\" + botmethods.name + botmethods.extension, script);
         }
     }
 }

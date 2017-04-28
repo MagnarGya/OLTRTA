@@ -12,11 +12,11 @@ namespace OLTRTA {
             Expression[] exs = new Expression[6];
             exs[0] = new Expression("ReadSensors()");
 
-            Expression[] bl1Exs = { new Expression("MoveBackward(100)")};
+            Expression[] bl1Exs = { new Expression("MoveBackward(300)")};
             Block block1 = new Block(bl1Exs);
             exs[1] = new If(new Expression("Touching()"), block1);
 
-            Expression[] bl2Exs = { new Expression("MoveBackward(100)") };
+            Expression[] bl2Exs = { new Expression("MoveBackward(300)") };
             Block block2 = new Block(bl2Exs);
             exs[2] = new If(new Expression("SeeingBoth()"), block2);
 
@@ -28,7 +28,7 @@ namespace OLTRTA {
             Block block4 = new Block(bl4Exs);
             exs[4] = new Else(new If(new Expression("SeeingRight()"), block4));
 
-            Expression[] bl5Exs = { new Expression("MoveForward(100)") };
+            Expression[] bl5Exs = { new Expression("MoveForward(300)") };
             Block block5 = new Block(bl5Exs);
             exs[5] = new Else(block5);
 

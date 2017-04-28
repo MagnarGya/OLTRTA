@@ -55,9 +55,11 @@ delay(time)</idle>
 </methods>
 <metamethods>
   <ReadSensors parameter="" return="void">touchingLeft = WhiskerSensor(LeftWhisker);
-  touchingRight = WhiskerSensor(RightWhisker);
-  seeingLeft = InfraredSensor(LeftInfraredSensor, LeftInfraredEmitter);
-  seeingRight = InfraredSensor(RightInfraredSensor, RightInfraredEmitter)</ReadSensors>
+touchingRight = WhiskerSensor(RightWhisker);
+delay(10);
+seeingLeft = InfraredSensor(LeftInfraredSensor, LeftInfraredEmitter);
+delay(10);
+seeingRight = InfraredSensor(RightInfraredSensor, RightInfraredEmitter)</ReadSensors>
   <Touching parameter="" return="bool">return (touchingLeft || touchingRight)</Touching>
   <TouchingBoth parameter="" return="bool">return (touchingLeft &amp;&amp; touchingRight)</TouchingBoth>
   <TouchingLeft parameter="" return="bool">return touchingLeft</TouchingLeft>
