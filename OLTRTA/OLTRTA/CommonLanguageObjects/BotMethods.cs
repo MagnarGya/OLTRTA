@@ -7,24 +7,29 @@ using System.Xml.Linq;
 
 namespace OLTRTA.CommonLanguageObjects {
     class BotMethods {
-        public Expression[] global_variables;
+        public string name;
+        public string robot;
+        public Declaration[] global_variables;
         public Method setup;
         public Method[] methods;
         public Method[] metamethods;
+        public string extension;
 
         public BotMethods(string _robot, string _name) {
+            name = _name;
+            robot = _robot;
             global_variables = getGlobalVariables(_robot, _name);
             setup = getSetup(_robot, _name);
             methods = getMethods(_robot, _name);
             metamethods = getMetamethods(_robot, _name);
-            
+            extension = getExtension(_robot, _name);
             
         }
-        Expression[] getGlobalVariables(string _robot, string _name) {
+        Declaration[] getGlobalVariables(string _robot, string _name) {
             XDocument xml = XDocument.Load(@"..\..\" + _robot + "\\" + _robot + ".xml");
             XDocument config = XDocument.Load(@"..\..\" + _robot + "\\" + _name + ".xml");
             var v = xml.Element("robot").Element("setup").Element("globalvariables").Elements();
-            List<Expression> expressions = new List<Expression>();
+            List<Declaration> expressions = new List<Declaration>();
             foreach(XElement el in v) {
                 string name = el.FirstAttribute.Value;
                 string type = el.LastAttribute.Value;
@@ -33,7 +38,7 @@ namespace OLTRTA.CommonLanguageObjects {
                     name = name.Replace(assign.Name.ToString(), assign.FirstAttribute.Value.ToString());
                     type = type.Replace(assign.Name.ToString(), assign.FirstAttribute.Value.ToString());
                 }
-                expressions.Add(new Expression(type + " " + name));
+                expressions.Add(new Declaration(type + " " + name));
             }
             return expressions.ToArray();
         }
@@ -122,6 +127,11 @@ namespace OLTRTA.CommonLanguageObjects {
             }
 
             return methodlist.ToArray();
+        }
+        string getExtension(string _robot, string _name) {
+            XDocument xml = XDocument.Load(@"..\..\" + _robot + "\\" + _robot + ".xml");
+            var x = xml.Element("robot").Element("setup").Element("extension").Value;
+            return x as string;
         }
     }
 }

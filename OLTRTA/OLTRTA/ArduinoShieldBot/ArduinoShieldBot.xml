@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <robot>
   <setup>
+    <extension>.ino</extension>
     <globalvariables>
       <e name="&lt;Servo.h&gt;" type="#include"/>
       <e name="servoRight" type="Servo"/>

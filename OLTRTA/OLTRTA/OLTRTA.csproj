@@ -55,7 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CodeOutputWriter.cs" />
     <Compile Include="CommonLanguageObjects\BotMethods.cs" />
+    <Compile Include="CommonLanguageObjects\Declaration.cs" />
     <Compile Include="CommonLanguageObjects\Script.cs" />
     <Compile Include="CommonToCParser.cs" />
     <Compile Include="CommonToLanguageParser.cs" />

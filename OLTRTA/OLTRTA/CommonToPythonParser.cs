@@ -49,6 +49,7 @@ namespace OLTRTA {
                 case "OLTRTA.CommonLanguageObjects.Block": return parseBlock(_exp as Block);
                 case "OLTRTA.CommonLanguageObjects.While": return parseWhile(_exp as While);
                 case "OLTRTA.CommonLanguageObjects.For": return parseFor(_exp as For);
+                case "OLTRTA.CommonLanguageObjects.Declaration": return _exp.content + "\n";
                 default: return _exp.content;
             }
         }

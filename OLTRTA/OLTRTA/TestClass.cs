@@ -12,11 +12,11 @@ namespace OLTRTA {
             Expression[] exs = new Expression[6];
             exs[0] = new Expression("ReadSensors()");
 
-            Expression[] bl1Exs = { new Expression("MoveBackward(500)")};
+            Expression[] bl1Exs = { new Expression("MoveBackward(100)")};
             Block block1 = new Block(bl1Exs);
             exs[1] = new If(new Expression("Touching()"), block1);
 
-            Expression[] bl2Exs = { new Expression("MoveBackward(500)") };
+            Expression[] bl2Exs = { new Expression("MoveBackward(100)") };
             Block block2 = new Block(bl2Exs);
             exs[2] = new If(new Expression("SeeingBoth()"), block2);
 
@@ -28,7 +28,7 @@ namespace OLTRTA {
             Block block4 = new Block(bl4Exs);
             exs[4] = new Else(new If(new Expression("SeeingRight()"), block4));
 
-            Expression[] bl5Exs = { new Expression("MoveForward(500)") };
+            Expression[] bl5Exs = { new Expression("MoveForward(100)") };
             Block block5 = new Block(bl5Exs);
             exs[5] = new Else(block5);
 
@@ -45,20 +45,8 @@ namespace OLTRTA {
 
             
             BotMethods botmet = new BotMethods("ArduinoShieldBot", "ShieldBot1(Standard)");
-            string script ="";
-            for(int i = 0; i < botmet.global_variables.Length; i++) {
-                script += cparser.parseExpression(botmet.global_variables[i]);
-            }
-            script += cparser.parseMethod(botmet.setup);
-            script += cparser.parseMethod(loop);
-            for (int i = 0; i < botmet.methods.Length; i++) {
-                script += cparser.parseMethod(botmet.methods[i]);
-            }
-            for (int i = 0; i < botmet.metamethods.Length; i++) {
-                script += cparser.parseMethod(botmet.metamethods[i]);
-            }
-            System.IO.File.WriteAllText(@"C:\Users\Magnar\Desktop\Methods_for_arduino\generatedArdu.ino", script);
-            Console.Write(script);
+            CodeOutputWriter COW = new CodeOutputWriter(cparser, botmet, loop);
+            COW.writeToFile();
         }
 
         void hardcodedTestToGenerateFullArduinoScript(Method loop) {
