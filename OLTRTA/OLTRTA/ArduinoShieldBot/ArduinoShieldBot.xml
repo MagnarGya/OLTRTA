@@ -23,25 +23,25 @@ servoRight.writeMicroseconds(1300);
 delay(time);
 servoLeft.writeMicroseconds(1500);
 servoRight.writeMicroseconds(1500);
-delay(1)</moveForward>
+delay(5)</moveForward>
   <moveBackward parameter="int time" return="void">servoLeft.writeMicroseconds(1300);
 servoRight.writeMicroseconds(1700);
 delay(time);
 servoLeft.writeMicroseconds(1500);
 servoRight.writeMicroseconds(1500);
-delay(1)</moveBackward>
+delay(5)</moveBackward>
   <turnLeft parameter="int degrees" return="void">servoLeft.writeMicroseconds(1300);
 servoRight.writeMicroseconds(1300);
 delay(degrees*5);
 servoLeft.writeMicroseconds(1500);
 servoRight.writeMicroseconds(1500);
-delay(1)</turnLeft>
+delay(5)</turnLeft>
   <turnRight parameter="int degrees" return="void">servoLeft.writeMicroseconds(1700);
 servoRight.writeMicroseconds(1700);
 delay(degrees*5);
 servoLeft.writeMicroseconds(1500);
 servoRight.writeMicroseconds(1500);
-delay(1)</turnRight>
+delay(5)</turnRight>
   <InfraredSensor parameter="int pin,int pout" return="int">tone(pout, 38000, 8);
 delay(1);
 int ir = digitalRead(pin);
