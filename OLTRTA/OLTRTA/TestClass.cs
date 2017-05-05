@@ -44,8 +44,8 @@ namespace OLTRTA {
             Console.Write(pyparser.parseMethod(loop));
 
             
-            BotMethods botmet = new BotMethods("ArduinoShieldBot", "ShieldBot1(Standard)");
-            CodeOutputWriter COW = new CodeOutputWriter(cparser, botmet, loop);
+            BotMethods botmet = new BotMethods("LegoMindstormsEV3", "EV3_1(standard)");
+            CodeOutputWriter COW = new CodeOutputWriter(pyparser, botmet, loop);
             COW.writeToFile();
         }
 
